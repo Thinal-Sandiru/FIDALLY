@@ -8,7 +8,7 @@ The name combines **Fidelis** (faithful, loyal) and **Ally** (a trusted companio
 
 
 
-🌐 **Website:** 
+🌐 **Website:**
 📋 **Task board:** [Trello – FIDALLY Task Board](https://trello.com/b/Ysdd87HR)
 
 \---
@@ -62,7 +62,7 @@ fidally/
 
 ### Workflow
 
-1. Create a branch from `develop`: `git checkout develop \&\& git pull \&\& git checkout -b feature/<name>`
+1. Create a branch from `develop`: `git checkout develop \\\&\\\& git pull \\\&\\\& git checkout -b feature/<name>`
 2. Commit small, clear changes, e.g. `Add reminders section to landing page`
 3. Push the branch and open a **pull request** into `develop`
 4. At least **one teammate reviews and approves** before merging
@@ -77,15 +77,22 @@ Use the imperative mood and keep the summary under about 60 characters:
 
 ## Running the landing page locally
 
-```bash
-git clone https://github.com/<Thinal-Sandiru>/fidally.git
-cd fidally/website
-# open index.html in a browser, or serve it locally:
-python3 -m http.server 8000
-# then visit http://localhost:8000
-```
 
-The site is deployed automatically from the `main` branch.
+```bash
+
+git clone https://github.com/Thinal-Sandiru/FIDALLY.git
+
+cd FIDALLY/website
+
+\# open index.html in a browser, or serve it locally:
+
+python3 -m http.server 8000
+
+\# then visit http://localhost:8000
+
+
+
+```The site is deployed automatically from the `main` branch.
 
 \---
 
