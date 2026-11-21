@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FIDALLY – Your faithful AI companion</title>
+
+    <!-- SEO and social preview -->
+    <meta
+      name="description"
+      content="FIDALLY is a physical AI companion with a mobile app. It listens, responds, writes your diary, sets reminders, switches modes, plays music and keeps your data private."
+    />
+    <meta name="theme-color" content="#040a1e" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FIDALLY – Your faithful AI companion" />
+    <meta
+      property="og:description"
+      content="A physical AI companion with a mobile app. Talk about your day and stay in control of your data."
+    />
+    <meta property="og:url" content="https://myfidally.com/" />
+    <meta
+      property="og:image"
+      content="https://myfidally.com/images/Favicon.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/png" href="./images/Favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="wrap">
+        <a href="#hero" class="brand" aria-label="FIDALLY home">
+          <img src="./images/Wording.png" id="main_img" alt="FIDALLY logo" />
+        </a>
+
+        <div class="links" id="links">
+          <a href="#how">How it works</a><a href="#features">Features</a
+          ><a href="#modes">Modes &amp; Music</a><a href="#privacy">Privacy</a
+          ><a href="#roadmap">Roadmap</a><a href="#team">Team</a>
+          <a href="#join" class="btn p" style="padding: 10px 22px"
+            >Join the Waitlist</a
+          >
+        </div>
+        <button class="menu" id="menu" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero">
+        <canvas id="net"></canvas>
+        <div class="wrap hero-grid">
+          <div>
+            <div class="badge"><i></i>Fidelis + Ally: a faithful companion</div>
+            <h1>
+              The AI companion that
+              <span class="grad">listens, responds</span> and helps.
+            </h1>
+            <p class="lead">
+              FIDALLY is a physical AI companion with its own mobile app. Talk
+              about your day. It writes your diary summaries, sets your
+              reminders, switches modes and plays your music, while keeping your
+              diary data private and under your control.
+            </p>
+            <div class="cta">
+              <a href="#join" class="btn p">Join the Waitlist</a
+              ><a href="#how" class="btn g">See it in action</a>
+            </div>
+          </div>
+          <div class="orb-box" aria-hidden="true">
+            <div class="ring a"></div>
+            <div class="ring b"></div>
+            <div class="orb">
+              <!-- DEVICE / HERO IMAGE: add images/device.png to replace the voice wave -->
+              <img src="./images/device.png" alt="" onerror="this.remove()" />
+              <div class="wave">
+                <b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+              </div>
+            </div>
+            <div class="chip c1">📓 Diary entry saved</div>
+            <div class="chip c2">⏰ Reminder: Friday 4 PM</div>
+            <div class="chip c3">📚 Study Mode on</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg2" id="why">
+        <div class="wrap rv">
+          <h2>
+            Loneliness is not about being alone. It is about having no one to
+            tell.
+          </h2>
+          <p class="lead">
+            Many people have nobody they can comfortably share their days,
+            thoughts and stories with. FIDALLY gives them a patient, private
+            place to do exactly that.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong data-n="1" data-pre="1 in " data-suf="">1 in 6</strong
+              ><span>People worldwide experience loneliness (WHO, 2025)</span>
+            </div>
+            <div class="stat">
+              <strong data-n="21" data-suf="%">21%</strong
+              ><span>of Adolescents aged 13–17 report feeling lonely</span>
+            </div>
+            <div class="stat">
+              <strong data-n="5" data-suf="">5</strong
+              ><span
+                >Groups we design for: people living alone, abroad, students,
+                older adults, and anyone with limited support</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="wrap rv">
+          <h2>One conversation. Several useful results.</h2>
+          <p class="lead">
+            Tell FIDALLY about your day. It helps turn what you share into a
+            written diary summary and sets reminders when you ask—saving only
+            after your confirmation.
+          </p>
+          <div class="demo">
+            <div class="pane">
+              <h3>Conversation with FIDALLY</h3>
+              <div id="chat"></div>
+            </div>
+            <div class="pane">
+              <h3>What gets saved in your app</h3>
+              <div class="out" id="out">
+                <div class="empty">Waiting for your confirmation…</div>
+              </div>
+            </div>
+          </div>
+          <button class="btn g replay" id="replay">Replay the demo</button>
+        </div>
+      </section>
+
+      <section class="bg2" id="features">
+        <div class="wrap rv">
+          <h2>Everything a good companion should do.</h2>
+          <div class="feat">
+            <div class="f">
+              <div class="ic">🎙️</div>
+              <h3>AI replying</h3>
+              <p>
+                Listens and answers naturally whenever you talk, so
+                communication feels easy and interactive.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">📓</div>
+              <h3>Digital diary</h3>
+              <p>
+                Turns what you share into a written summary that is dated,
+                editable and deletable in the app with your approval.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">⏰</div>
+              <h3>Smart reminders</h3>
+              <p>
+                Tell FIDALLY what to remind you about by voice, and alerts fire
+                on time and appear in the app.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">🌙</div>
+              <h3>Different modes</h3>
+              <p>
+                Switch between Study Mode and Sleep Mode via voice or the app to
+                suit what you are doing.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">🎵</div>
+              <h3>Music player</h3>
+              <p>
+                Choose from 10 selectable tracks on the device with play, pause
+                and stop controls.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">🔗</div>
+              <h3>Device &amp; app pairing</h3>
+              <p>
+                Pair the companion device with the mobile app so approved diary
+                entries and reminders sync smoothly.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">📱</div>
+              <h3>Companion app</h3>
+              <p>
+                One place to view, edit and delete diary entries, manage
+                reminders, switch modes and adjust basic settings.
+              </p>
+            </div>
+            <div class="f">
+              <div class="ic">🔒</div>
+              <h3>Private by design</h3>
+              <p>
+                Keeps personal data on-device by default with user-controlled
+                sharing, consent and auto-deletion options.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="modes">
+        <div class="wrap rv">
+          <h2>Switch modes. Press play.</h2>
+          <p class="lead">
+            Pick a mode that fits what you are doing, then choose a track. Try
+            both below.
+          </p>
+          <div class="demo">
+            <div class="pane">
+              <h3>Choose a mode</h3>
+              <div class="tabs">
+                <button class="tab on" data-m="Study">📚 Study Mode</button
+                ><button class="tab" data-m="Sleep">🌙 Sleep Mode</button>
+              </div>
+              <div class="mode-out">
+                <h4 id="mt"></h4>
+                <p id="md"></p>
+              </div>
+            </div>
+            <div class="pane">
+              <h3>Music player: 10 tracks</h3>
+              <div class="now">
+                <div class="eq" id="eq" aria-hidden="true">
+                  <b></b><b></b><b></b><b></b>
+                </div>
+                <div>
+                  <strong id="np">Choose a track</strong><br /><small
+                    id="ns"
+                    style="color: var(--mut)"
+                    >Tap a track to play</small
+                  >
+                </div>
+                <button class="btn p" id="pp" aria-label="Play or pause">
+                  ▶
+                </button>
+              </div>
+              <ol class="tracks" id="tracks"></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- App screenshots from the Figma prototype -->
+      <section class="bg2" id="app">
+        <div class="wrap rv">
+          <h2>See the app</h2>
+          <p class="lead">
+            The FIDALLY mobile app keeps your diary, reminders, modes, music and
+            device settings in one place. Hover or focus a card to expand.
+          </p>
+          <div class="shots">
+            <figure tabindex="0">
+              <img
+                src="./images/Prototypes/Home.png"
+                alt="App home screen with a Talk to your companion button and today's reminders"
+                loading="lazy"
+              />
+              <figcaption>Home</figcaption>
+            </figure>
+            <figure tabindex="0">
+              <img
+                src="./images/Prototypes/Diary.png"
+                alt="Diary screen listing saved entries with edit and delete buttons"
+                loading="lazy"
+              />
+              <figcaption>Diary</figcaption>
+            </figure>
+            <figure tabindex="0">
+              <img
+                src="./images/Prototypes/Reminders.png"
+                alt="Reminders screen with a description, edit and delete options"
+                loading="lazy"
+              />
+              <figcaption>Reminders</figcaption>
+            </figure>
+            <figure tabindex="0">
+              <img
+                src="./images/Prototypes/Music.png"
+                alt="Music screen with a list of ten tracks"
+                loading="lazy"
+              />
+              <figcaption>Music</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="wrap priv rv">
+          <div>
+            <h2>Your diary. Your rules.</h2>
+            <p class="lead">
+              Personal records stay on the device with user-controlled app
+              sharing, clear consent, and configurable automatic deletion after
+              two or three months. Try the controls.
+            </p>
+            <ul class="ticks">
+              <li>
+                Stored locally on the companion device with user data separated
+                from developer settings.
+              </li>
+              <li>
+                Nothing is saved or shared with the app without your approval,
+                and you can edit or delete entries anytime.
+              </li>
+              <li>
+                Configure automatic deletion after 2 or 3 months alongside clear
+                consent and sync controls.
+              </li>
+            </ul>
+          </div>
+          <div class="ctrl">
+            <div class="tg">
+              <span>Local device storage</span
+              ><button
+                aria-pressed="true"
+                aria-label="Local device storage"
+              ></button>
+            </div>
+            <div class="tg">
+              <span>Share approved diary with app</span
+              ><button
+                aria-pressed="true"
+                aria-label="Share approved diary with app"
+              ></button>
+            </div>
+            <div class="tg">
+              <span>Allow reminder alerts</span
+              ><button
+                aria-pressed="true"
+                aria-label="Allow reminder alerts"
+              ></button>
+            </div>
+            <div class="tg">
+              <span>Diary consent enabled</span
+              ><button
+                aria-pressed="true"
+                aria-label="Diary consent enabled"
+              ></button>
+            </div>
+            <div class="ret-box">
+              <label for="ret">Auto-delete local entries after:</label>
+              <div class="ret-row">
+                <input
+                  type="range"
+                  id="ret"
+                  min="2"
+                  max="3"
+                  step="1"
+                  value="2"
+                />
+                <output id="retv" for="ret">2 months</output>
+              </div>
+              <div class="bar"><i id="fill"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg2">
+        <div class="wrap rv">
+          <h2>Built for people who need someone to talk to.</h2>
+          <div class="users">
+            <span>🏠 People living alone</span
+            ><span>🌍 People living abroad</span
+            ><span>🎓 University students</span><span>👵 Older adults</span
+            ><span>🤝 Anyone with limited support</span>
+          </div>
+          <div class="note">
+            <strong>An honest promise.</strong> Voice AI, reminders and media
+            playback already exist in other products. FIDALLY’s value is
+            bringing natural conversation, diary summaries, reminders, Study and
+            Sleep modes, 10-track music playback and private data control
+            together in one connected system. It is designed to complement human
+            relationships and professional mental health support, never replace
+            them.
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="wrap rv">
+          <h2>Six months from idea to working prototype.</h2>
+          <p class="lead">
+            A team of five is building FIDALLY in phases, from design to
+            demonstration. Select or press Enter on any phase to inspect
+            deliverables.
+          </p>
+          <div class="tl">
+            <div class="st active" data-m="1" tabindex="0" role="button">
+              <h3>Design</h3>
+              <p>Requirements and system design</p>
+            </div>
+            <div class="st" data-m="2" tabindex="0" role="button">
+              <h3>Hardware</h3>
+              <p>Board, microphone, speaker, display</p>
+            </div>
+            <div class="st" data-m="3" tabindex="0" role="button">
+              <h3>AI</h3>
+              <p>Voice conversation and diary summary</p>
+            </div>
+            <div class="st" data-m="4" tabindex="0" role="button">
+              <h3>Mobile app</h3>
+              <p>Diary, reminders, modes, music</p>
+            </div>
+            <div class="st" data-m="5" tabindex="0" role="button">
+              <h3>Integration</h3>
+              <p>Device and app work as one</p>
+            </div>
+            <div class="st" data-m="6" tabindex="0" role="button">
+              <h3>Test and demo</h3>
+              <p>Usability, fixes, documentation</p>
+            </div>
+          </div>
+          <div class="mode-out rm-detail" id="rm-detail">
+            <h4 id="rm-title">Phase 1 · Design</h4>
+            <p id="rm-desc">
+              Requirements analysis, user workflows, and connected architecture
+              for FIDALLY and its companion app.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team section -->
+      <section class="bg2" id="team">
+        <div class="wrap rv">
+          <h2>Meet the team</h2>
+          <p class="lead">
+            Team CS-16 is a group of five students building FIDALLY.
+          </p>
+          <div class="team">
+            <div class="member">
+              <span class="role">Hardware &amp; IoT</span>
+              <h3>Danuja Perera</h3>
+              <p>Hardware and device integration</p>
+            </div>
+            <div class="member">
+              <span class="role">AI &amp; Voice</span>
+              <h3>Michelle Peiris</h3>
+              <p>AI and voice</p>
+            </div>
+            <div class="member">
+              <span class="role">Mobile App</span>
+              <h3>Chamindu Sewmika</h3>
+              <p>Mobile application</p>
+            </div>
+            <div class="member">
+              <span class="role">Backend &amp; Data</span>
+              <h3>Thinal Sandiru</h3>
+              <p>Backend and data</p>
+            </div>
+            <div class="member">
+              <span class="role">Privacy &amp; QA</span>
+              <h3>Thisumi Kapuge</h3>
+              <p>Privacy, quality assurance and documentation</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final" id="join">
+        <div class="wrap rv">
+          <h2>Meet your faithful ally.</h2>
+          <p class="lead">
+            Leave your email and we will tell you when FIDALLY is ready to try.
+          </p>
+          <form class="form" id="form">
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+              required
+              aria-label="Email address"
+            /><button class="btn p" type="submit">Join the waitlist</button>
+          </form>
+          <p id="msg" role="status"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="brand">
+          <img
+            src="./images/Footer Image.png"
+            id="footer_logo"
+            alt="FIDALLY logo"
+          />
+        </div>
+        <div>
+          <p>
+            <a href="mailto:fidallycompanion@gmail.com">CONTACT US</a>
+          </p>
+          <!-- <p>
+            <a href="https://github.com/YOUR-TEAM/YOUR-REPO" rel="noopener"
+              >GitHub</a
+            >
+            ·
+            <a href="https://www.linkedin.com/company/YOUR-PAGE" rel="noopener"
+              >LinkedIn</a
+            >
+            ·
+            <a href="https://www.instagram.com/YOUR-ACCOUNT" rel="noopener"
+              >Instagram</a
+            >
+          </p> -->
+          <p>Agile Team Project · Team CS-16</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
