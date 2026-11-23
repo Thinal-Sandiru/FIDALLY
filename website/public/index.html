@@ -34,6 +34,181 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <div class="splash" id="splash" aria-hidden="true">
+      <!-- Full-width live audio waveform horizon -->
+      <canvas class="splash-wave-canvas" id="splashWave"></canvas>
+
+      <!-- Full-viewport expanding acoustic ripples -->
+      <div class="splash-ripples">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Clean centered companion stage -->
+      <div class="splash-stage">
+        <div class="splash-bot">
+          <svg
+            class="fidally-model"
+            viewBox="0 0 280 290"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Soft floor shadow -->
+            <ellipse
+              cx="140"
+              cy="272"
+              rx="96"
+              ry="11"
+              fill="#020614"
+              opacity="0.75"
+            />
+
+            <!-- Rectangular rounded base dock -->
+            <rect
+              x="44"
+              y="188"
+              width="192"
+              height="78"
+              rx="14"
+              fill="#0e1c44"
+              stroke="#2c478f"
+              stroke-width="2"
+            />
+            <!-- Base top surface bevel -->
+            <path
+              d="M54 188 H226 C231.5 188 236 192.5 236 198 V204 H44 V198 C44 192.5 48.5 188 54 188 Z"
+              fill="#15285c"
+            />
+
+            <!-- Front display screen on the base -->
+            <rect
+              x="92"
+              y="209"
+              width="96"
+              height="44"
+              rx="7"
+              fill="#040a1e"
+              stroke="#1e3370"
+              stroke-width="2"
+            />
+            <rect
+              class="bot-screen-bg"
+              x="97"
+              y="214"
+              width="86"
+              height="34"
+              rx="4"
+              fill="#0a1535"
+            />
+            <!-- Loading bar inside the base front screen -->
+            <g class="bot-screen-ui">
+              <rect x="108" y="229" width="64" height="4" rx="2" fill="#1e3370" />
+              <rect
+                class="bot-screen-prog"
+                id="splashProg"
+                x="108"
+                y="229"
+                width="64"
+                height="4"
+                rx="2"
+                fill="#5aa2ff"
+              />
+            </g>
+
+            <!-- Dark blue circular collar ring on top of base -->
+            <ellipse cx="140" cy="186" rx="46" ry="9" fill="#1d4ed8" />
+            <ellipse cx="140" cy="183" rx="46" ry="8" fill="#2f6bff" />
+
+            <!-- Left outstretched arm + cuff + welcoming hand -->
+            <g class="bot-arm bot-arm--l">
+              <rect x="74" y="122" width="16" height="14" rx="6" fill="#0e1c44" stroke="#5aa2ff" stroke-width="2" />
+              <rect x="65" y="120" width="9" height="18" rx="4.5" fill="#15285c" stroke="#5aa2ff" stroke-width="1.8" />
+              <circle cx="57" cy="129" r="8" fill="#0e1c44" stroke="#9fb2dc" stroke-width="1.8" />
+              <path d="M51 124 L47 118 M55 121 L54 114 M60 122 L62 115" stroke="#9fb2dc" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Right outstretched arm + cuff + welcoming hand -->
+            <g class="bot-arm bot-arm--r">
+              <rect x="190" y="122" width="16" height="14" rx="6" fill="#0e1c44" stroke="#5aa2ff" stroke-width="2" />
+              <rect x="206" y="120" width="9" height="18" rx="4.5" fill="#15285c" stroke="#5aa2ff" stroke-width="1.8" />
+              <circle cx="223" cy="129" r="8" fill="#0e1c44" stroke="#9fb2dc" stroke-width="1.8" />
+              <path d="M229 124 L233 118 M225 121 L226 114 M220 122 L218 115" stroke="#9fb2dc" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Plump rounded torso -->
+            <ellipse
+              cx="140"
+              cy="144"
+              rx="52"
+              ry="43"
+              fill="#0e1c44"
+              stroke="#5aa2ff"
+              stroke-width="2"
+            />
+            <!-- Subtle side accent curves on torso -->
+            <path
+              d="M93 158 C100 174 118 184 140 184 C162 184 180 174 187 158"
+              stroke="#2c478f"
+              stroke-width="2"
+              fill="none"
+            />
+
+            <!-- Concentric chest speaker grille + pulsing voice ripples -->
+            <g class="bot-speaker">
+              <circle class="spk-wave spk-w1" cx="140" cy="144" r="18" stroke="#5aa2ff" stroke-width="1.4" fill="none" />
+              <circle class="spk-wave spk-w2" cx="140" cy="144" r="18" stroke="#2f6bff" stroke-width="1.2" fill="none" />
+              <circle cx="140" cy="144" r="15" stroke="#2c478f" stroke-width="1.6" stroke-dasharray="6 3" />
+              <circle cx="140" cy="144" r="10" stroke="#5aa2ff" stroke-width="1.6" stroke-dasharray="5 3" />
+              <circle cx="140" cy="144" r="4.5" fill="#2f6bff" />
+            </g>
+
+            <!-- Spherical head group -->
+            <g class="bot-head-grp">
+              <!-- Left & Right ear pods -->
+              <rect x="86" y="48" width="12" height="32" rx="6" fill="#0e1c44" stroke="#5aa2ff" stroke-width="2" />
+              <rect x="182" y="48" width="12" height="32" rx="6" fill="#0e1c44" stroke="#5aa2ff" stroke-width="2" />
+
+              <!-- Main spherical head -->
+              <circle
+                cx="140"
+                cy="64"
+                r="45"
+                fill="#0e1c44"
+                stroke="#5aa2ff"
+                stroke-width="2"
+              />
+
+              <!-- Recessed circular front visor ring -->
+              <circle
+                cx="140"
+                cy="64"
+                r="29"
+                fill="#040a1e"
+                stroke="#5aa2ff"
+                stroke-width="3"
+              />
+              <circle
+                class="bot-visor-glow"
+                cx="140"
+                cy="64"
+                r="24"
+                fill="#0a1535"
+              />
+
+              <!-- Cute animated eyes inside circular visor -->
+              <g class="bot-eyes">
+                <rect class="bot-eye" x="126" y="57" width="8" height="12" rx="4" fill="#5aa2ff" />
+                <rect class="bot-eye" x="146" y="57" width="8" height="12" rx="4" fill="#5aa2ff" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <img class="splash-word" src="./images/Wording.png" alt="FIDALLY" />
+      </div>
+    </div>
+
     <nav>
       <div class="wrap">
         <a href="#hero" class="brand" aria-label="FIDALLY home">
@@ -57,7 +232,11 @@
         <canvas id="net"></canvas>
         <div class="wrap hero-grid">
           <div>
-            <div class="badge"><i></i>Fidelis + Ally: a faithful companion</div>
+            <img
+              src="./images/Footer Image.png"
+              class="hero-logo"
+              alt="FIDALLY logo"
+            />
             <h1>
               The AI companion that
               <span class="grad">listens, responds</span> and helps.
@@ -530,6 +709,7 @@
       </div>
     </footer>
 
+    <script src="./js/splash.js" defer></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
