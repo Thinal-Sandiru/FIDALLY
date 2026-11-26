@@ -50,8 +50,9 @@ $$(".stat strong").forEach((s) => {
 
 // neural network background
 (() => {
-  const c = $("#net"),
-    x = c.getContext("2d");
+  const c = $("#net");
+  if (!c || getComputedStyle(c).display === "none") return;
+  const x = c.getContext("2d");
   let w,
     h,
     pts = [];
@@ -193,11 +194,11 @@ function setMode(k) {
 }
 $$(".tab").forEach(
   (t) =>
-    (t.onclick = () => {
-      $$(".tab").forEach((x) => x.classList.remove("on"));
-      t.classList.add("on");
-      setMode(t.dataset.m);
-    }),
+  (t.onclick = () => {
+    $$(".tab").forEach((x) => x.classList.remove("on"));
+    t.classList.add("on");
+    setMode(t.dataset.m);
+  }),
 );
 setMode("Study");
 
@@ -228,7 +229,7 @@ function play(i) {
   $("#np").textContent = names[i];
   $("#ns").textContent = "Track " + (i + 1) + " of 10";
   au.src = "./music/track" + (i + 1) + ".mp3";
-  au.play().catch(() => {});
+  au.play().catch(() => { });
   view();
 }
 names.forEach((n, i) => {
@@ -242,7 +243,7 @@ names.forEach((n, i) => {
 $("#pp").onclick = () => {
   if (cur < 0) return play(0);
   playing = !playing;
-  playing ? au.play().catch(() => {}) : au.pause();
+  playing ? au.play().catch(() => { }) : au.pause();
   view();
 };
 au.onended = () => play((cur + 1) % 10);
